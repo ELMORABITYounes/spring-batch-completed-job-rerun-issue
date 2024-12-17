@@ -10,13 +10,16 @@ public class PersonItemProcessor implements ItemProcessor<Person, Person> {
 	private static final Logger log = LoggerFactory.getLogger(PersonItemProcessor.class);
 
 	@Override
-	public Person process(final Person person) {
+	public Person process(final Person person) throws InterruptedException {
 		final String firstName = person.firstName().toUpperCase();
 		final String lastName = person.lastName().toUpperCase();
 
 		final Person transformedPerson = new Person(firstName, lastName);
 
 		log.info("Converting (" + person + ") into (" + transformedPerson + ")");
+		if (person.firstName().equals("Joe")){
+			Thread.sleep(30000);
+		}
 
 		return transformedPerson;
 	}

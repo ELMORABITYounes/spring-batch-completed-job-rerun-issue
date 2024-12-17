@@ -1,0 +1,18 @@
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+    max-active: 10
+    max-idle: 5
+    min-idle: 2
+    max-wait: 10000
+  sql:
+    init:
+      mode: always
